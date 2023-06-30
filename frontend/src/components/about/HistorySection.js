@@ -38,7 +38,7 @@ import history22 from "../../assets/history/history22.jpg";
 
 import {connect} from "react-redux";
 
-const HistorySection = ({page}) => {
+const HistorySection = ({page, history}) => {
 
   const image_block = useRef(null)
   const [width, setWidth] = useState(0)
@@ -135,303 +135,317 @@ const HistorySection = ({page}) => {
       <MDBContainer className=''>
         <div className="">
           <MDBTimeline clasName="">
-
-
-            <MDBTimelineStep colorful hoverable color="idab-3" label="1">
-              <img src={history1} className="img-fluid" alt=""/>
+            {history?.map((item, index) => (
+              <MDBTimelineStep colorful hoverable color="idab-3" label={index+1}>
+              <img src={item?.image} className="img-fluid" alt=""/>
               <h4 className="font-weight-bold p-4 mb-0">
-                Образование
+                {item?.title}
               </h4>
               <p className="text-muted px-4 mb-0">
-                <MDBIcon icon="clock"/> 20 ноября 2002 г.
+                <MDBIcon icon="clock"/> {item?.date}
               </p>
               <p className="mb-0 p-4">
-                Образование Института делового администрирования и бизнеса как правопреемника бизнес-школы МВА
-                Финакадемии.
+                {item?.text}
               </p>
             </MDBTimelineStep>
+            ))}
 
 
-            <MDBTimelineStep colorful inverted hoverable color="idab-3" label="2">
-              <img src={history2} className="img-fluid" alt=""/>
-              <h4 className="font-weight-bold p-4 mb-0">
-                Первая программа проф переподготовки
-              </h4>
-              <p className="text-muted px-4 mb-0">
-                <MDBIcon icon="clock"/> Февраль 2003 г.
-              </p>
-              <p className="mb-0 p-4">
-                Открытие первой программы профессиональной переподготовки «Куратор коммерческого банка – банковский
-                менеджер» для специалистов надзорного блока Банка России.
-              </p>
-            </MDBTimelineStep>
+            {/*<MDBTimelineStep colorful hoverable color="idab-3" label="1">*/}
+            {/*  <img src={history1} className="img-fluid" alt=""/>*/}
+            {/*  <h4 className="font-weight-bold p-4 mb-0">*/}
+            {/*    Образование*/}
+            {/*  </h4>*/}
+            {/*  <p className="text-muted px-4 mb-0">*/}
+            {/*    <MDBIcon icon="clock"/> 20 ноября 2002 г.*/}
+            {/*  </p>*/}
+            {/*  <p className="mb-0 p-4">*/}
+            {/*    Образование Института делового администрирования и бизнеса как правопреемника бизнес-школы МВА*/}
+            {/*    Финакадемии.*/}
+            {/*  </p>*/}
+            {/*</MDBTimelineStep>*/}
 
 
-            <MDBTimelineStep colorful hoverable color="idab-3" label="3">
-              <img src={history3} className="img-fluid" alt=""/>
-              <h4 className="font-weight-bold p-4 mb-0">
-                Открытие новых программ
-              </h4>
-              <p className="text-muted px-4 mb-0">
-                <MDBIcon icon="clock"/> Март 2004 г.
-              </p>
-              <p className="mb-0 p-4">
-                Открытие программы профессиональной переподготовки «Инспектор коммерческого банка – банковский менеджер»
-                для специалистов надзорного блока Банка России.
-              </p>
-            </MDBTimelineStep>
-            <MDBTimelineStep colorful inverted hoverable color="idab-3" label="4">
-              <img src={history4} className="img-fluid" alt=""/>
-              <h4 className="font-weight-bold p-4 mb-0">
-                Новый проект
-              </h4>
-              <p className="text-muted px-4 mb-0">
-                <MDBIcon icon="clock"/> Ноябрь 2004 г.
-              </p>
-              <p className="mb-0 p-4">
-                Открытие проекта с «Международной школой бизнеса» Республики Казахстан по подготовке топ-менеджеров и
-                собственников бизнеса Республики по программе «МВА – Финансы».ф
-              </p>
-            </MDBTimelineStep>
+            {/*<MDBTimelineStep colorful inverted hoverable color="idab-3" label="2">*/}
+            {/*  <img src={history2} className="img-fluid" alt=""/>*/}
+            {/*  <h4 className="font-weight-bold p-4 mb-0">*/}
+            {/*    Первая программа проф переподготовки*/}
+            {/*  </h4>*/}
+            {/*  <p className="text-muted px-4 mb-0">*/}
+            {/*    <MDBIcon icon="clock"/> Февраль 2003 г.*/}
+            {/*  </p>*/}
+            {/*  <p className="mb-0 p-4">*/}
+            {/*    Открытие первой программы профессиональной переподготовки «Куратор коммерческого банка – банковский*/}
+            {/*    менеджер» для специалистов надзорного блока Банка России.*/}
+            {/*  </p>*/}
+            {/*</MDBTimelineStep>*/}
 
 
-            <MDBTimelineStep colorful hoverable color="idab-3" label="5">
-              <img src={history5} className="img-fluid" alt=""/>
-              <h4 className="font-weight-bold p-4 mb-0">
-                Запуск проекта
-              </h4>
-              <p className="text-muted px-4 mb-0">
-                <MDBIcon icon="clock"/> Ноябрь 2004 г.
-              </p>
-              <p className="mb-0 p-4">
-                Запуск проекта «Школа финансового директора» с ОАО РАО «ЕЭС России» и подготовка слушателей по программе
-                МВА – Финансы в рамках реструктуризации энергетический отрасли России.
-              </p>
-            </MDBTimelineStep>
-            <MDBTimelineStep colorful inverted hoverable color="idab-3" label="6">
-              <img src={history6} className="img-fluid" alt=""/>
-              <h4 className="font-weight-bold p-4 mb-0">
-                Новая программа
-              </h4>
-              <p className="text-muted px-4 mb-0">
-                <MDBIcon icon="clock"/> Апрель 2005 г.
-              </p>
-              <p className="mb-0 p-4">
-                Начало программы «МВА-Финансы» для специалистов ОАО «ЛУКОЙЛ».
-              </p>
-            </MDBTimelineStep>
+            {/*<MDBTimelineStep colorful hoverable color="idab-3" label="3">*/}
+            {/*  <img src={history3} className="img-fluid" alt=""/>*/}
+            {/*  <h4 className="font-weight-bold p-4 mb-0">*/}
+            {/*    Открытие новых программ*/}
+            {/*  </h4>*/}
+            {/*  <p className="text-muted px-4 mb-0">*/}
+            {/*    <MDBIcon icon="clock"/> Март 2004 г.*/}
+            {/*  </p>*/}
+            {/*  <p className="mb-0 p-4">*/}
+            {/*    Открытие программы профессиональной переподготовки «Инспектор коммерческого банка – банковский менеджер»*/}
+            {/*    для специалистов надзорного блока Банка России.*/}
+            {/*  </p>*/}
+            {/*</MDBTimelineStep>*/}
+            {/*<MDBTimelineStep colorful inverted hoverable color="idab-3" label="4">*/}
+            {/*  <img src={history4} className="img-fluid" alt=""/>*/}
+            {/*  <h4 className="font-weight-bold p-4 mb-0">*/}
+            {/*    Новый проект*/}
+            {/*  </h4>*/}
+            {/*  <p className="text-muted px-4 mb-0">*/}
+            {/*    <MDBIcon icon="clock"/> Ноябрь 2004 г.*/}
+            {/*  </p>*/}
+            {/*  <p className="mb-0 p-4">*/}
+            {/*    Открытие проекта с «Международной школой бизнеса» Республики Казахстан по подготовке топ-менеджеров и*/}
+            {/*    собственников бизнеса Республики по программе «МВА – Финансы».ф*/}
+            {/*  </p>*/}
+            {/*</MDBTimelineStep>*/}
 
 
-            <MDBTimelineStep colorful hoverable color="idab-3" label="7">
-              <img src={history7} className="img-fluid" alt=""/>
-              <h4 className="font-weight-bold p-4 mb-0">
-                Новая программа
-              </h4>
-              <p className="text-muted px-4 mb-0">
-                <MDBIcon icon="clock"/> Ноябрь 2005 г.
-              </p>
-              <p className="mb-0 p-4">
-                Открытие программы «МВА – Банковский менеджмент» для открытого набора.
-              </p>
-            </MDBTimelineStep>
-            <MDBTimelineStep colorful inverted hoverable color="idab-3" label="8">
-              <img src={history8} className="img-fluid" alt=""/>
-              <h4 className="font-weight-bold p-4 mb-0">
-                Второе место в конкурсе
-              </h4>
-              <p className="text-muted px-4 mb-0">
-                <MDBIcon icon="clock"/> Апрель 2007 г.
-              </p>
-              <p className="mb-0 p-4">
-                Второе призовое место в конкурсе решения кейсов «МВА Case Competition» в Американской Торговой палате в
-                Москве.
-              </p>
-            </MDBTimelineStep>
+            {/*<MDBTimelineStep colorful hoverable color="idab-3" label="5">*/}
+            {/*  <img src={history5} className="img-fluid" alt=""/>*/}
+            {/*  <h4 className="font-weight-bold p-4 mb-0">*/}
+            {/*    Запуск проекта*/}
+            {/*  </h4>*/}
+            {/*  <p className="text-muted px-4 mb-0">*/}
+            {/*    <MDBIcon icon="clock"/> Ноябрь 2004 г.*/}
+            {/*  </p>*/}
+            {/*  <p className="mb-0 p-4">*/}
+            {/*    Запуск проекта «Школа финансового директора» с ОАО РАО «ЕЭС России» и подготовка слушателей по программе*/}
+            {/*    МВА – Финансы в рамках реструктуризации энергетический отрасли России.*/}
+            {/*  </p>*/}
+            {/*</MDBTimelineStep>*/}
+            {/*<MDBTimelineStep colorful inverted hoverable color="idab-3" label="6">*/}
+            {/*  <img src={history6} className="img-fluid" alt=""/>*/}
+            {/*  <h4 className="font-weight-bold p-4 mb-0">*/}
+            {/*    Новая программа*/}
+            {/*  </h4>*/}
+            {/*  <p className="text-muted px-4 mb-0">*/}
+            {/*    <MDBIcon icon="clock"/> Апрель 2005 г.*/}
+            {/*  </p>*/}
+            {/*  <p className="mb-0 p-4">*/}
+            {/*    Начало программы «МВА-Финансы» для специалистов ОАО «ЛУКОЙЛ».*/}
+            {/*  </p>*/}
+            {/*</MDBTimelineStep>*/}
 
 
-            <MDBTimelineStep colorful hoverable color="idab-3" label="9">
-              <img src={history9} className="img-fluid" alt=""/>
-              <h4 className="font-weight-bold p-4 mb-0">
-                Победа на конкурсе
-              </h4>
-              <p className="text-muted px-4 mb-0">
-                <MDBIcon icon="clock"/> Апрель 2008 г.
-              </p>
-              <p className="mb-0 p-4">
-                Победа на конкурсе кейсов «МВА Case Competition» в Американской Торговой палате в Москве.
-              </p>
-            </MDBTimelineStep>
-            <MDBTimelineStep colorful inverted hoverable color="idab-3" label="10">
-              <img src={history10} className="img-fluid" alt=""/>
-              <h4 className="font-weight-bold p-4 mb-0">
-                Учреждение дискуссионного клуба
-              </h4>
-              <p className="text-muted px-4 mb-0">
-                <MDBIcon icon="clock"/> Май 2008 г.
-              </p>
-              <p className="mb-0 p-4">
-                ИДАБ, ММВБ, ФК «Открытие» учредили дискуссионный клуб «Инвест-менеджер».
-              </p>
-            </MDBTimelineStep>
+            {/*<MDBTimelineStep colorful hoverable color="idab-3" label="7">*/}
+            {/*  <img src={history7} className="img-fluid" alt=""/>*/}
+            {/*  <h4 className="font-weight-bold p-4 mb-0">*/}
+            {/*    Новая программа*/}
+            {/*  </h4>*/}
+            {/*  <p className="text-muted px-4 mb-0">*/}
+            {/*    <MDBIcon icon="clock"/> Ноябрь 2005 г.*/}
+            {/*  </p>*/}
+            {/*  <p className="mb-0 p-4">*/}
+            {/*    Открытие программы «МВА – Банковский менеджмент» для открытого набора.*/}
+            {/*  </p>*/}
+            {/*</MDBTimelineStep>*/}
+            {/*<MDBTimelineStep colorful inverted hoverable color="idab-3" label="8">*/}
+            {/*  <img src={history8} className="img-fluid" alt=""/>*/}
+            {/*  <h4 className="font-weight-bold p-4 mb-0">*/}
+            {/*    Второе место в конкурсе*/}
+            {/*  </h4>*/}
+            {/*  <p className="text-muted px-4 mb-0">*/}
+            {/*    <MDBIcon icon="clock"/> Апрель 2007 г.*/}
+            {/*  </p>*/}
+            {/*  <p className="mb-0 p-4">*/}
+            {/*    Второе призовое место в конкурсе решения кейсов «МВА Case Competition» в Американской Торговой палате в*/}
+            {/*    Москве.*/}
+            {/*  </p>*/}
+            {/*</MDBTimelineStep>*/}
 
 
-            <MDBTimelineStep colorful hoverable color="idab-3" label="11">
-              <img src={history11} className="img-fluid" alt=""/>
-              <h4 className="font-weight-bold p-4 mb-0">
-                Новая совместная программа
-              </h4>
-              <p className="text-muted px-4 mb-0">
-                <MDBIcon icon="clock"/> Декабрь 2009 г.
-              </p>
-              <p className="mb-0 p-4">
-                Начало реализации совместной программы «Financial accountant Diploma» совместно с Институтом финансовых
-                аналитиков Великобритании (IFA).
-              </p>
-            </MDBTimelineStep>
-            <MDBTimelineStep colorful inverted hoverable color="idab-3" label="12">
-              <img src={history12} className="img-fluid" alt=""/>
-              <h4 className="font-weight-bold p-4 mb-0">
-                Новая программа
-              </h4>
-              <p className="text-muted px-4 mb-0">
-                <MDBIcon icon="clock"/> Ноябрь 2011 г.
-              </p>
-              <p className="mb-0 p-4">
-                Открыта новая программа МВА-HR-менеджмент для специалистов ОАО «РЖД».
-              </p>
-            </MDBTimelineStep>
+            {/*<MDBTimelineStep colorful hoverable color="idab-3" label="9">*/}
+            {/*  <img src={history9} className="img-fluid" alt=""/>*/}
+            {/*  <h4 className="font-weight-bold p-4 mb-0">*/}
+            {/*    Победа на конкурсе*/}
+            {/*  </h4>*/}
+            {/*  <p className="text-muted px-4 mb-0">*/}
+            {/*    <MDBIcon icon="clock"/> Апрель 2008 г.*/}
+            {/*  </p>*/}
+            {/*  <p className="mb-0 p-4">*/}
+            {/*    Победа на конкурсе кейсов «МВА Case Competition» в Американской Торговой палате в Москве.*/}
+            {/*  </p>*/}
+            {/*</MDBTimelineStep>*/}
+            {/*<MDBTimelineStep colorful inverted hoverable color="idab-3" label="10">*/}
+            {/*  <img src={history10} className="img-fluid" alt=""/>*/}
+            {/*  <h4 className="font-weight-bold p-4 mb-0">*/}
+            {/*    Учреждение дискуссионного клуба*/}
+            {/*  </h4>*/}
+            {/*  <p className="text-muted px-4 mb-0">*/}
+            {/*    <MDBIcon icon="clock"/> Май 2008 г.*/}
+            {/*  </p>*/}
+            {/*  <p className="mb-0 p-4">*/}
+            {/*    ИДАБ, ММВБ, ФК «Открытие» учредили дискуссионный клуб «Инвест-менеджер».*/}
+            {/*  </p>*/}
+            {/*</MDBTimelineStep>*/}
 
 
-            <MDBTimelineStep colorful hoverable color="idab-3" label="13">
-              <img src={history13} className="img-fluid" alt=""/>
-              <h4 className="font-weight-bold p-4 mb-0">
-                Премия "Лучшие бизнес-школы двух столиц 2012"
-              </h4>
-              <p className="text-muted px-4 mb-0">
-                <MDBIcon icon="clock"/> Октябрь 2012 г.
-              </p>
-              <p className="mb-0 p-4">
-                Премия "Лучшие бизнес-школы двух столиц 2012" по версии издания «Элитный персонал».
-              </p>
-            </MDBTimelineStep>
-            <MDBTimelineStep colorful inverted hoverable color="idab-3" label="14">
-              <img src={history14} className="img-fluid" alt=""/>
-              <h4 className="font-weight-bold p-4 mb-0">
-                Новая специализация
-              </h4>
-              <p className="text-muted px-4 mb-0">
-                <MDBIcon icon="clock"/> Октябрь 2012 г.
-              </p>
-              <p className="mb-0 p-4">
-                Открытие специализации МВА «Управление стоимостью бизнеса» совместно с компанией American Appraisal.
-              </p>
-            </MDBTimelineStep>
+            {/*<MDBTimelineStep colorful hoverable color="idab-3" label="11">*/}
+            {/*  <img src={history11} className="img-fluid" alt=""/>*/}
+            {/*  <h4 className="font-weight-bold p-4 mb-0">*/}
+            {/*    Новая совместная программа*/}
+            {/*  </h4>*/}
+            {/*  <p className="text-muted px-4 mb-0">*/}
+            {/*    <MDBIcon icon="clock"/> Декабрь 2009 г.*/}
+            {/*  </p>*/}
+            {/*  <p className="mb-0 p-4">*/}
+            {/*    Начало реализации совместной программы «Financial accountant Diploma» совместно с Институтом финансовых*/}
+            {/*    аналитиков Великобритании (IFA).*/}
+            {/*  </p>*/}
+            {/*</MDBTimelineStep>*/}
+            {/*<MDBTimelineStep colorful inverted hoverable color="idab-3" label="12">*/}
+            {/*  <img src={history12} className="img-fluid" alt=""/>*/}
+            {/*  <h4 className="font-weight-bold p-4 mb-0">*/}
+            {/*    Новая программа*/}
+            {/*  </h4>*/}
+            {/*  <p className="text-muted px-4 mb-0">*/}
+            {/*    <MDBIcon icon="clock"/> Ноябрь 2011 г.*/}
+            {/*  </p>*/}
+            {/*  <p className="mb-0 p-4">*/}
+            {/*    Открыта новая программа МВА-HR-менеджмент для специалистов ОАО «РЖД».*/}
+            {/*  </p>*/}
+            {/*</MDBTimelineStep>*/}
 
 
-            <MDBTimelineStep colorful hoverable color="idab-3" label="15">
-              <img src={history15} className="img-fluid" alt=""/>
-              <h4 className="font-weight-bold p-4 mb-0">
-                Новая специализация
-              </h4>
-              <p className="text-muted px-4 mb-0">
-                <MDBIcon icon="clock"/> Октябрь 2015 г.
-              </p>
-              <p className="mb-0 p-4">
-                Открытие специализации МВА «Управление продажами» совместно с Владиславом Завадским.
-              </p>
-            </MDBTimelineStep>
-            <MDBTimelineStep colorful inverted hoverable color="idab-3" label="16">
-              <img src={history16} className="img-fluid" alt=""/>
-              <h4 className="font-weight-bold p-4 mb-0">
-                Новая специализация
-              </h4>
-              <p className="text-muted px-4 mb-0">
-                <MDBIcon icon="clock"/> Октябрь 2015 г.
-              </p>
-              <p className="mb-0 p-4">
-                Открытие специализации МВА «Банки» для работников главной инспекции Банка России.
-              </p>
-            </MDBTimelineStep>
+            {/*<MDBTimelineStep colorful hoverable color="idab-3" label="13">*/}
+            {/*  <img src={history13} className="img-fluid" alt=""/>*/}
+            {/*  <h4 className="font-weight-bold p-4 mb-0">*/}
+            {/*    Премия "Лучшие бизнес-школы двух столиц 2012"*/}
+            {/*  </h4>*/}
+            {/*  <p className="text-muted px-4 mb-0">*/}
+            {/*    <MDBIcon icon="clock"/> Октябрь 2012 г.*/}
+            {/*  </p>*/}
+            {/*  <p className="mb-0 p-4">*/}
+            {/*    Премия "Лучшие бизнес-школы двух столиц 2012" по версии издания «Элитный персонал».*/}
+            {/*  </p>*/}
+            {/*</MDBTimelineStep>*/}
+            {/*<MDBTimelineStep colorful inverted hoverable color="idab-3" label="14">*/}
+            {/*  <img src={history14} className="img-fluid" alt=""/>*/}
+            {/*  <h4 className="font-weight-bold p-4 mb-0">*/}
+            {/*    Новая специализация*/}
+            {/*  </h4>*/}
+            {/*  <p className="text-muted px-4 mb-0">*/}
+            {/*    <MDBIcon icon="clock"/> Октябрь 2012 г.*/}
+            {/*  </p>*/}
+            {/*  <p className="mb-0 p-4">*/}
+            {/*    Открытие специализации МВА «Управление стоимостью бизнеса» совместно с компанией American Appraisal.*/}
+            {/*  </p>*/}
+            {/*</MDBTimelineStep>*/}
 
 
-            <MDBTimelineStep colorful hoverable color="idab-3" label="17">
-              <img src={history17} className="img-fluid" alt=""/>
-              <h4 className="font-weight-bold p-4 mb-0">
-                Новая программа
-              </h4>
-              <p className="text-muted px-4 mb-0">
-                <MDBIcon icon="clock"/> 2016 г.
-              </p>
-              <p className="mb-0 p-4">
-                Открытие программы профессиональной переподготовки «Управление бизнес-проектами».
-              </p>
-            </MDBTimelineStep>
-            <MDBTimelineStep colorful inverted hoverable color="idab-3" label="18">
-              <img src={history18} className="img-fluid" alt=""/>
-              <h4 className="font-weight-bold p-4 mb-0">
-                Международное признание
-              </h4>
-              <p className="text-muted px-4 mb-0">
-                <MDBIcon icon="clock"/> Февраль 2017 г.
-              </p>
-              <p className="mb-0 p-4">
-                Программы MBA ИДАБ получили международное признание Института финансовых аналитиков Великобритании
-                (IFA).
-              </p>
-            </MDBTimelineStep>
+            {/*<MDBTimelineStep colorful hoverable color="idab-3" label="15">*/}
+            {/*  <img src={history15} className="img-fluid" alt=""/>*/}
+            {/*  <h4 className="font-weight-bold p-4 mb-0">*/}
+            {/*    Новая специализация*/}
+            {/*  </h4>*/}
+            {/*  <p className="text-muted px-4 mb-0">*/}
+            {/*    <MDBIcon icon="clock"/> Октябрь 2015 г.*/}
+            {/*  </p>*/}
+            {/*  <p className="mb-0 p-4">*/}
+            {/*    Открытие специализации МВА «Управление продажами» совместно с Владиславом Завадским.*/}
+            {/*  </p>*/}
+            {/*</MDBTimelineStep>*/}
+            {/*<MDBTimelineStep colorful inverted hoverable color="idab-3" label="16">*/}
+            {/*  <img src={history16} className="img-fluid" alt=""/>*/}
+            {/*  <h4 className="font-weight-bold p-4 mb-0">*/}
+            {/*    Новая специализация*/}
+            {/*  </h4>*/}
+            {/*  <p className="text-muted px-4 mb-0">*/}
+            {/*    <MDBIcon icon="clock"/> Октябрь 2015 г.*/}
+            {/*  </p>*/}
+            {/*  <p className="mb-0 p-4">*/}
+            {/*    Открытие специализации МВА «Банки» для работников главной инспекции Банка России.*/}
+            {/*  </p>*/}
+            {/*</MDBTimelineStep>*/}
 
 
-            <MDBTimelineStep colorful hoverable color="idab-3" label="19">
-              <img src={history19} className="img-fluid" alt=""/>
-              <h4 className="font-weight-bold p-4 mb-0">
-                Новый центр
-              </h4>
-              <p className="text-muted px-4 mb-0">
-                <MDBIcon icon="clock"/> Ноябрь 2017 г.
-              </p>
-              <p className="mb-0 p-4">
-                ИДАБ новый центр профессионального бизнес-образования старейшего в России управленческого вуза
-                Государственного университета управления.
-              </p>
-            </MDBTimelineStep>
-            <MDBTimelineStep colorful inverted hoverable color="idab-3" label="20">
-              <img src={history20} className="img-fluid" alt=""/>
-              <h4 className="font-weight-bold p-4 mb-0">
-                Выпуск группы
-              </h4>
-              <p className="text-muted px-4 mb-0">
-                <MDBIcon icon="clock"/> Ноябрь 2017 г.
-              </p>
-              <p className="mb-0 p-4">
-                Выпуск группы компании ВРК-3
-              </p>
-            </MDBTimelineStep>
+            {/*<MDBTimelineStep colorful hoverable color="idab-3" label="17">*/}
+            {/*  <img src={history17} className="img-fluid" alt=""/>*/}
+            {/*  <h4 className="font-weight-bold p-4 mb-0">*/}
+            {/*    Новая программа*/}
+            {/*  </h4>*/}
+            {/*  <p className="text-muted px-4 mb-0">*/}
+            {/*    <MDBIcon icon="clock"/> 2016 г.*/}
+            {/*  </p>*/}
+            {/*  <p className="mb-0 p-4">*/}
+            {/*    Открытие программы профессиональной переподготовки «Управление бизнес-проектами».*/}
+            {/*  </p>*/}
+            {/*</MDBTimelineStep>*/}
+            {/*<MDBTimelineStep colorful inverted hoverable color="idab-3" label="18">*/}
+            {/*  <img src={history18} className="img-fluid" alt=""/>*/}
+            {/*  <h4 className="font-weight-bold p-4 mb-0">*/}
+            {/*    Международное признание*/}
+            {/*  </h4>*/}
+            {/*  <p className="text-muted px-4 mb-0">*/}
+            {/*    <MDBIcon icon="clock"/> Февраль 2017 г.*/}
+            {/*  </p>*/}
+            {/*  <p className="mb-0 p-4">*/}
+            {/*    Программы MBA ИДАБ получили международное признание Института финансовых аналитиков Великобритании*/}
+            {/*    (IFA).*/}
+            {/*  </p>*/}
+            {/*</MDBTimelineStep>*/}
 
 
-            <MDBTimelineStep colorful hoverable color="idab-3" label="21">
-              <img src={history21} className="img-fluid" alt=""/>
-              <h4 className="font-weight-bold p-4 mb-0">
-                Выпуск группы МВА
-              </h4>
-              <p className="text-muted px-4 mb-0">
-                <MDBIcon icon="clock"/> Июнь 2019 г.
-              </p>
-              <p className="mb-0 p-4">
-                Первый Выпуск группы МВА на новой площадке ГУУ
-              </p>
-            </MDBTimelineStep>
-            <MDBTimelineStep colorful inverted hoverable color="idab-3" label="22">
-              <img src={history22} className="img-fluid" alt=""/>
-              <h4 className="font-weight-bold p-4 mb-0">
-                Новая программа
-              </h4>
-              <p className="text-muted px-4 mb-0">
-                <MDBIcon icon="clock"/> 2020 г.
-              </p>
-              <p className="mb-0 p-4">
-                Запуск президентской программы
-              </p>
-            </MDBTimelineStep>
+            {/*<MDBTimelineStep colorful hoverable color="idab-3" label="19">*/}
+            {/*  <img src={history19} className="img-fluid" alt=""/>*/}
+            {/*  <h4 className="font-weight-bold p-4 mb-0">*/}
+            {/*    Новый центр*/}
+            {/*  </h4>*/}
+            {/*  <p className="text-muted px-4 mb-0">*/}
+            {/*    <MDBIcon icon="clock"/> Ноябрь 2017 г.*/}
+            {/*  </p>*/}
+            {/*  <p className="mb-0 p-4">*/}
+            {/*    ИДАБ новый центр профессионального бизнес-образования старейшего в России управленческого вуза*/}
+            {/*    Государственного университета управления.*/}
+            {/*  </p>*/}
+            {/*</MDBTimelineStep>*/}
+            {/*<MDBTimelineStep colorful inverted hoverable color="idab-3" label="20">*/}
+            {/*  <img src={history20} className="img-fluid" alt=""/>*/}
+            {/*  <h4 className="font-weight-bold p-4 mb-0">*/}
+            {/*    Выпуск группы*/}
+            {/*  </h4>*/}
+            {/*  <p className="text-muted px-4 mb-0">*/}
+            {/*    <MDBIcon icon="clock"/> Ноябрь 2017 г.*/}
+            {/*  </p>*/}
+            {/*  <p className="mb-0 p-4">*/}
+            {/*    Выпуск группы компании ВРК-3*/}
+            {/*  </p>*/}
+            {/*</MDBTimelineStep>*/}
+
+
+            {/*<MDBTimelineStep colorful hoverable color="idab-3" label="21">*/}
+            {/*  <img src={history21} className="img-fluid" alt=""/>*/}
+            {/*  <h4 className="font-weight-bold p-4 mb-0">*/}
+            {/*    Выпуск группы МВА*/}
+            {/*  </h4>*/}
+            {/*  <p className="text-muted px-4 mb-0">*/}
+            {/*    <MDBIcon icon="clock"/> Июнь 2019 г.*/}
+            {/*  </p>*/}
+            {/*  <p className="mb-0 p-4">*/}
+            {/*    Первый Выпуск группы МВА на новой площадке ГУУ*/}
+            {/*  </p>*/}
+            {/*</MDBTimelineStep>*/}
+            {/*<MDBTimelineStep colorful inverted hoverable color="idab-3" label="22">*/}
+            {/*  <img src={history22} className="img-fluid" alt=""/>*/}
+            {/*  <h4 className="font-weight-bold p-4 mb-0">*/}
+            {/*    Новая программа*/}
+            {/*  </h4>*/}
+            {/*  <p className="text-muted px-4 mb-0">*/}
+            {/*    <MDBIcon icon="clock"/> 2020 г.*/}
+            {/*  </p>*/}
+            {/*  <p className="mb-0 p-4">*/}
+            {/*    Запуск президентской программы*/}
+            {/*  </p>*/}
+            {/*</MDBTimelineStep>*/}
 
           </MDBTimeline>
         </div>
@@ -441,7 +455,8 @@ const HistorySection = ({page}) => {
 };
 
 const mapStateToProps = state => ({
-  page: state.pages.pages[0]
+  page: state.pages.pages[0],
+  history: state.about.about_history
 })
 
 export default connect(mapStateToProps)(HistorySection);

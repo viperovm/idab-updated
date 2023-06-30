@@ -7,6 +7,8 @@ import {
   GET_ABOUT_LEADER_FAIL,
   GET_ABOUT_GALLERY_SUCCESS,
   GET_ABOUT_GALLERY_FAIL,
+  GET_ABOUT_HISTORY_SUCCESS,
+  GET_ABOUT_HISTORY_FAIL,
 } from '../actions/types'
 
 const initialState = {
@@ -14,6 +16,7 @@ const initialState = {
   about_management: [],
   about_teachers: [],
   about_gallery: [],
+  about_history: [],
 };
 
 export default function(state= initialState, action) {
@@ -50,7 +53,7 @@ export default function(state= initialState, action) {
         ...state,
         about_teachers: []
       }
-      case GET_ABOUT_GALLERY_SUCCESS:
+    case GET_ABOUT_GALLERY_SUCCESS:
       return {
         ...state,
         about_gallery: payload.about_gallery
@@ -59,6 +62,17 @@ export default function(state= initialState, action) {
       return {
         ...state,
         about_gallery: []
+      }
+
+    case GET_ABOUT_HISTORY_SUCCESS:
+      return {
+        ...state,
+        about_history: payload.about_history
+      }
+    case GET_ABOUT_HISTORY_FAIL:
+      return {
+        ...state,
+        about_history: []
       }
     default:
       return state

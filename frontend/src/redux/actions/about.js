@@ -9,6 +9,8 @@ import {
   GET_ABOUT_TEACHERS_FAIL,
   GET_ABOUT_GALLERY_SUCCESS,
   GET_ABOUT_GALLERY_FAIL,
+  GET_ABOUT_HISTORY_SUCCESS,
+  GET_ABOUT_HISTORY_FAIL,
 } from './types'
 
 export const load_about_leader = () => async dispatch => {
@@ -106,6 +108,31 @@ export const load_about_gallery = () => async dispatch => {
     } catch (err) {
       dispatch({
         type: GET_ABOUT_GALLERY_FAIL
+      })
+    }
+}
+
+
+export const load_about_history = () => async dispatch => {
+  const config = {
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      }
+    };
+
+    try {
+      const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/history/`, config);
+      const data = {
+        about_history: res.data,
+      }
+      dispatch({
+        type: GET_ABOUT_HISTORY_SUCCESS,
+        payload: data
+      })
+    } catch (err) {
+      dispatch({
+        type: GET_ABOUT_HISTORY_FAIL
       })
     }
 }
