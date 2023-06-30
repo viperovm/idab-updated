@@ -25,7 +25,7 @@ import rating2013 from "../../assets/rating2013.jpg"
 
 import {connect} from "react-redux";
 
-const RatingSection = ({page}) => {
+const RatingSection = ({page, rating}) => {
 
   const image_block = useRef(null)
   const [width, setWidth] = useState(0)
@@ -46,7 +46,7 @@ const RatingSection = ({page}) => {
   })
 
   useEffect(() => {
-    if(page){
+    if (page) {
       setSubsections(page.subsections)
     }
   }, [page])
@@ -100,7 +100,8 @@ const RatingSection = ({page}) => {
                     <div className='d-none d-lg-flex flex-column'>
                       <h3 className='mission-text'>{text}</h3>
                       {sub1 || sub2 &&
-                        <div className='mission-footer d-inline'><p className='d-inline'>{sub1 ? sub1 : ''} <span>{sub2 ? sub2 : ''}</span></p>
+                      <div className='mission-footer d-inline'><p className='d-inline'>{sub1 ? sub1 : ''}
+                        <span>{sub2 ? sub2 : ''}</span></p>
                       </div>
                       }
                     </div>
@@ -129,321 +130,392 @@ const RatingSection = ({page}) => {
 
 
       <div className='mx-5 pb-5'>
-        <MDBRow>
-          <MDBCol lg="7" className='d-flex justify-content-center align-items-center'
-                  className='d-flex justify-content-center align-items-center'>
-            <div>
-              <h3 className="font-weight-bold mb-3 p-0">
-                <strong>Аккредитация Института финансовых аналитиков (IFA, Великобритания)</strong>
-              </h3>
-              <p>
-                Институт финансовых аналитиков (IFA, Великобритания) пролонгировал аккредитацию программы «Мастер делового администрирования – Master of Business Administration (МВА)» ИДАБ ГУУ до 2024 года. Дипломы IFA имеют признание в 85 странах мира и подтверждают соответствие программы MBA ИДАБ ГУУ международным требованиям профессиональных программ.
-              </p>
-            </div>
-          </MDBCol>
-          <MDBCol lg="5">
-            <MDBView className="rounded z-depth-2 mb-lg-0 mb-4" hover waves>
-              <img
-                style={{backgroundColor: '#fff'}}
-                className="img-fluid"
-                src={accred2019}
-                alt=""
-              />
-              <a href="https://www.mba.su/narodnyj_rating_bschools_2020/" target='_blank'>
-                <MDBMask overlay="white-slight"/>
-              </a>
-            </MDBView>
-          </MDBCol>
-        </MDBRow>
-        <hr className="my-5"/>
-        <MDBRow>
-          <MDBCol lg="5">
-            <MDBView className="rounded z-depth-2 mb-lg-0 mb-4" hover waves>
-              <img
-                className="img-fluid"
-                src={rating2022}
-                alt=""
-              />
-              <a href="http://www.mba.su/rejting_biznes_shkol_2022_mba_su/" target='_blank'>
-                <MDBMask overlay="white-slight"/>
-              </a>
-            </MDBView>
-          </MDBCol>
-          <MDBCol lg="7" className='d-flex justify-content-center align-items-center'
-                  className='d-flex justify-content-center align-items-center'>
-            <div>
-              <h3 className="font-weight-bold mb-3 p-0">
-                <strong>4 место в 2022 году</strong>
-              </h3>
-              <p>
-                ИДАБ занимает 4 место в 2022 году в народном рейтинге российских бизнес школ, согласно сайту mba.su.
-              </p>
-              <a href="http://www.mba.su/rejting_biznes_shkol_2022_mba_su/" target='_blank'>
-                <MDBBtn outline color="idab" size="sm">Статья на сайте mba.su</MDBBtn>
-              </a>
-            </div>
-          </MDBCol>
-        </MDBRow>
-        <hr className="my-5"/>
-        <MDBRow>
-          <MDBCol lg="7" className='d-flex justify-content-center align-items-center'>
-            <div>
-              <h3 className="font-weight-bold mb-3 p-0">
-                <strong>4 место в 2021 году</strong>
-              </h3>
-              <p>
-                ИДАБ занимает 4 место в 2021 году в народном рейтинге российских бизнес школ, согласно сайту mba.su.
-              </p>
-              <a href="http://www.mba.su/rejting_biznes_shkol_2021_mba_su/" target='_blank'>
-                <MDBBtn outline color="idab" size="sm">Статья на сайте mba.su</MDBBtn>
-              </a>
-            </div>
-          </MDBCol>
-          <MDBCol lg="5">
-            <MDBView className="rounded z-depth-2 mb-lg-0 mb-4" hover waves>
-              <img
-                className="img-fluid"
-                src={rating2021}
-                alt=""
-              />
-              <a href="http://www.mba.su/rejting_biznes_shkol_2021_mba_su/" target='_blank'>
-                <MDBMask overlay="white-slight"/>
-              </a>
-            </MDBView>
-          </MDBCol>
-        </MDBRow>
-        <hr className="my-5"/>
-        <MDBRow>
-          <MDBCol lg="5">
-            <MDBView className="rounded z-depth-2 mb-lg-0 mb-4" hover waves>
-              <img
-                className="img-fluid"
-                src={rating2020}
-                alt=""
-              />
-              <a href="https://www.mba.su/narodnyj_rating_bschools_2020/" target='_blank'>
-                <MDBMask overlay="white-slight"/>
-              </a>
-            </MDBView>
-          </MDBCol>
-          <MDBCol lg="7" className='d-flex justify-content-center align-items-center'
-                  className='d-flex justify-content-center align-items-center'>
-            <div>
-              <h3 className="font-weight-bold mb-3 p-0">
-                <strong>4 место в 2020 году</strong>
-              </h3>
-              <p>
-                ИДАБ занимает 4 место в 2020 году в народном рейтинге российских бизнес школ, согласно сайту mba.su.
-              </p>
-              <a href="https://www.mba.su/narodnyj_rating_bschools_2020/" target='_blank'>
-                <MDBBtn outline color="idab" size="sm">Статья на сайте mba.su</MDBBtn>
-              </a>
-            </div>
-          </MDBCol>
-        </MDBRow>
-        <hr className="my-5"/>
-        <MDBRow>
-          <MDBCol lg="7" className='d-flex justify-content-center align-items-center'>
-            <div>
-              <h3 className="font-weight-bold mb-3 p-0">
-                <strong>4 место в 2019 году</strong>
-              </h3>
-              <p>
-                ИДАБ занимает 4 место в 2019 году в народном рейтинге российских бизнес школ, согласно сайту mba.su.
-              </p>
-              <a href="https://www.mba.su/narodnyj_rating_bschools_2019/" target='_blank'>
-                <MDBBtn outline color="idab" size="sm">Статья на сайте mba.su</MDBBtn>
-              </a>
-            </div>
-          </MDBCol>
-          <MDBCol lg="5">
-            <MDBView className="rounded z-depth-2 mb-lg-0 mb-4" hover waves>
-              <img
-                className="img-fluid"
-                src={rating2019}
-                alt=""
-              />
-              <a href="https://www.mba.su/narodnyj_rating_bschools_2019/" target='_blank'>
-                <MDBMask overlay="white-slight"/>
-              </a>
-            </MDBView>
-          </MDBCol>
-        </MDBRow>
-        <hr className="my-5"/>
-        <MDBRow>
-          <MDBCol lg="5">
-            <MDBView className="rounded z-depth-2 mb-lg-0 mb-4" hover waves>
-              <img
-                className="img-fluid"
-                src={accred2019}
-                alt=""
-              />
-              <a href="">
-                <MDBMask overlay="white-slight"/>
-              </a>
-            </MDBView>
-          </MDBCol>
-          <MDBCol lg="7" className='d-flex justify-content-center align-items-center'>
-            <div>
-              <h3 className="font-weight-bold mb-3 p-0">
-                <strong>Аккредитация Института финансовых аналитиков (IFA, Великобритания)</strong>
-              </h3>
-              <p>
-                Институт финансовых аналитиков (IFA, Великобритания) пролонгировал аккредитацию программы «Мастер
-                делового
-                администрирования – Master of Business Administration (МВА)» ИДАБ ГУУ до 2021 года. Дипломы IFA имеют
-                признание в 85 странах мира и подтверждают соответствие программы MBA ИДАБ ГУУ международным требованиям
-                профессиональных программ.
-              </p>
-            </div>
-          </MDBCol>
-        </MDBRow>
-        <hr className="my-5"/>
-        <MDBRow>
-          <MDBCol lg="7" className='d-flex justify-content-center align-items-center'>
-            <div>
-              <h3 className="font-weight-bold mb-3 p-0">
-                <strong>5 место в 2018 году</strong>
-              </h3>
-              <p>
-                ИДАБ занимает 5 место в 2018 году в народном рейтинге российских бизнес школ, согласно сайту mba.su.
-              </p>
-              <a href="https://www.mba.su/narodnyj_rating_bschools_2018/" target='_blank'>
-                <MDBBtn outline color="idab" size="sm">Статья на сайте mba.su</MDBBtn>
-              </a>
-            </div>
-          </MDBCol>
-          <MDBCol lg="5">
-            <MDBView className="rounded z-depth-2 mb-lg-0 mb-4" hover waves>
-              <img
-                className="img-fluid"
-                src={rating2018}
-                alt=""
-              />
-              <a href="https://www.mba.su/narodnyj_rating_bschools_2018/" target='_blank'>
-                <MDBMask overlay="white-slight"/>
-              </a>
-            </MDBView>
-          </MDBCol>
-        </MDBRow>
-        <hr className="my-5"/>
+
+        {rating?.map((item, index) => (
+          <>
+            {(index + 1) % 2 === 0
+              ?
+              <MDBRow>
+                <MDBCol lg="7" className='d-flex justify-content-center align-items-center'
+                        className='d-flex justify-content-center align-items-center'>
+                  <div>
+                    <h3 className="font-weight-bold mb-3 p-0">
+                      <strong>{item?.title}</strong>
+                    </h3>
+                    <p>
+                      {item?.text}
+                    </p>
+                    {item.url && <a href={item?.url} target='_blank'>
+                      <MDBBtn outline color="idab" size="sm">Читать в первоисточнике</MDBBtn>
+                    </a>}
+                  </div>
+                </MDBCol>
+                <MDBCol lg="5">
+                  <MDBView className="rounded z-depth-2 mb-lg-0 mb-4" hover waves>
+                    <img
+                      style={{backgroundColor: '#fff'}}
+                      className="img-fluid"
+                      src={item?.image}
+                      alt=""
+                    />
+                    {item.url && <a href={item?.url} target='_blank'>
+                      <MDBMask overlay="white-slight"/>
+                    </a>}
+                  </MDBView>
+                </MDBCol>
+              </MDBRow>
+              :
+              <MDBRow>
+                <MDBCol lg="5">
+                  <MDBView className="rounded z-depth-2 mb-lg-0 mb-4" hover waves>
+                    <img
+                      className="img-fluid"
+                      src={item?.image}
+                      alt=""
+                    />
+                    {item.url && <a href={item?.url} target='_blank'>
+                      <MDBMask overlay="white-slight"/>
+                    </a>}
+                  </MDBView>
+                </MDBCol>
+                <MDBCol lg="7" className='d-flex justify-content-center align-items-center'
+                        className='d-flex justify-content-center align-items-center'>
+                  <div>
+                    <h3 className="font-weight-bold mb-3 p-0">
+                      <strong>{item?.title}</strong>
+                    </h3>
+                    <p>
+                      {item?.text}
+                    </p>
+                    {item.url && <a href={item?.url} target='_blank'>
+                      <MDBBtn outline color="idab" size="sm">Читать в первоисточнике</MDBBtn>
+                    </a>}
+                  </div>
+                </MDBCol>
+              </MDBRow>
+            }
+            <hr className="my-5"/>
+          </>
+        ))}
+
+        {/*<MDBRow>*/}
+        {/*  <MDBCol lg="7" className='d-flex justify-content-center align-items-center'*/}
+        {/*          className='d-flex justify-content-center align-items-center'>*/}
+        {/*    <div>*/}
+        {/*      <h3 className="font-weight-bold mb-3 p-0">*/}
+        {/*        <strong>Аккредитация Института финансовых аналитиков (IFA, Великобритания)</strong>*/}
+        {/*      </h3>*/}
+        {/*      <p>*/}
+        {/*        Институт финансовых аналитиков (IFA, Великобритания) пролонгировал аккредитацию программы «Мастер*/}
+        {/*        делового администрирования – Master of Business Administration (МВА)» ИДАБ ГУУ до 2024 года. Дипломы IFA*/}
+        {/*        имеют признание в 85 странах мира и подтверждают соответствие программы MBA ИДАБ ГУУ международным*/}
+        {/*        требованиям профессиональных программ.*/}
+        {/*      </p>*/}
+        {/*    </div>*/}
+        {/*  </MDBCol>*/}
+        {/*  <MDBCol lg="5">*/}
+        {/*    <MDBView className="rounded z-depth-2 mb-lg-0 mb-4" hover waves>*/}
+        {/*      <img*/}
+        {/*        style={{backgroundColor: '#fff'}}*/}
+        {/*        className="img-fluid"*/}
+        {/*        src={accred2019}*/}
+        {/*        alt=""*/}
+        {/*      />*/}
+        {/*      <a href="https://www.mba.su/narodnyj_rating_bschools_2020/" target='_blank'>*/}
+        {/*        <MDBMask overlay="white-slight"/>*/}
+        {/*      </a>*/}
+        {/*    </MDBView>*/}
+        {/*  </MDBCol>*/}
+        {/*</MDBRow>*/}
+        {/*<hr className="my-5"/>*/}
+        {/*<MDBRow>*/}
+        {/*  <MDBCol lg="5">*/}
+        {/*    <MDBView className="rounded z-depth-2 mb-lg-0 mb-4" hover waves>*/}
+        {/*      <img*/}
+        {/*        className="img-fluid"*/}
+        {/*        src={rating2022}*/}
+        {/*        alt=""*/}
+        {/*      />*/}
+        {/*      <a href="http://www.mba.su/rejting_biznes_shkol_2022_mba_su/" target='_blank'>*/}
+        {/*        <MDBMask overlay="white-slight"/>*/}
+        {/*      </a>*/}
+        {/*    </MDBView>*/}
+        {/*  </MDBCol>*/}
+        {/*  <MDBCol lg="7" className='d-flex justify-content-center align-items-center'*/}
+        {/*          className='d-flex justify-content-center align-items-center'>*/}
+        {/*    <div>*/}
+        {/*      <h3 className="font-weight-bold mb-3 p-0">*/}
+        {/*        <strong>4 место в 2022 году</strong>*/}
+        {/*      </h3>*/}
+        {/*      <p>*/}
+        {/*        ИДАБ занимает 4 место в 2022 году в народном рейтинге российских бизнес школ, согласно сайту mba.su.*/}
+        {/*      </p>*/}
+        {/*      <a href="http://www.mba.su/rejting_biznes_shkol_2022_mba_su/" target='_blank'>*/}
+        {/*        <MDBBtn outline color="idab" size="sm">Статья на сайте mba.su</MDBBtn>*/}
+        {/*      </a>*/}
+        {/*    </div>*/}
+        {/*  </MDBCol>*/}
+        {/*</MDBRow>*/}
+        {/*<hr className="my-5"/>*/}
+        {/*<MDBRow>*/}
+        {/*  <MDBCol lg="7" className='d-flex justify-content-center align-items-center'>*/}
+        {/*    <div>*/}
+        {/*      <h3 className="font-weight-bold mb-3 p-0">*/}
+        {/*        <strong>4 место в 2021 году</strong>*/}
+        {/*      </h3>*/}
+        {/*      <p>*/}
+        {/*        ИДАБ занимает 4 место в 2021 году в народном рейтинге российских бизнес школ, согласно сайту mba.su.*/}
+        {/*      </p>*/}
+        {/*      <a href="http://www.mba.su/rejting_biznes_shkol_2021_mba_su/" target='_blank'>*/}
+        {/*        <MDBBtn outline color="idab" size="sm">Статья на сайте mba.su</MDBBtn>*/}
+        {/*      </a>*/}
+        {/*    </div>*/}
+        {/*  </MDBCol>*/}
+        {/*  <MDBCol lg="5">*/}
+        {/*    <MDBView className="rounded z-depth-2 mb-lg-0 mb-4" hover waves>*/}
+        {/*      <img*/}
+        {/*        className="img-fluid"*/}
+        {/*        src={rating2021}*/}
+        {/*        alt=""*/}
+        {/*      />*/}
+        {/*      <a href="http://www.mba.su/rejting_biznes_shkol_2021_mba_su/" target='_blank'>*/}
+        {/*        <MDBMask overlay="white-slight"/>*/}
+        {/*      </a>*/}
+        {/*    </MDBView>*/}
+        {/*  </MDBCol>*/}
+        {/*</MDBRow>*/}
+        {/*<hr className="my-5"/>*/}
+        {/*<MDBRow>*/}
+        {/*  <MDBCol lg="5">*/}
+        {/*    <MDBView className="rounded z-depth-2 mb-lg-0 mb-4" hover waves>*/}
+        {/*      <img*/}
+        {/*        className="img-fluid"*/}
+        {/*        src={rating2020}*/}
+        {/*        alt=""*/}
+        {/*      />*/}
+        {/*      <a href="https://www.mba.su/narodnyj_rating_bschools_2020/" target='_blank'>*/}
+        {/*        <MDBMask overlay="white-slight"/>*/}
+        {/*      </a>*/}
+        {/*    </MDBView>*/}
+        {/*  </MDBCol>*/}
+        {/*  <MDBCol lg="7" className='d-flex justify-content-center align-items-center'*/}
+        {/*          className='d-flex justify-content-center align-items-center'>*/}
+        {/*    <div>*/}
+        {/*      <h3 className="font-weight-bold mb-3 p-0">*/}
+        {/*        <strong>4 место в 2020 году</strong>*/}
+        {/*      </h3>*/}
+        {/*      <p>*/}
+        {/*        ИДАБ занимает 4 место в 2020 году в народном рейтинге российских бизнес школ, согласно сайту mba.su.*/}
+        {/*      </p>*/}
+        {/*      <a href="https://www.mba.su/narodnyj_rating_bschools_2020/" target='_blank'>*/}
+        {/*        <MDBBtn outline color="idab" size="sm">Статья на сайте mba.su</MDBBtn>*/}
+        {/*      </a>*/}
+        {/*    </div>*/}
+        {/*  </MDBCol>*/}
+        {/*</MDBRow>*/}
+        {/*<hr className="my-5"/>*/}
+        {/*<MDBRow>*/}
+        {/*  <MDBCol lg="7" className='d-flex justify-content-center align-items-center'>*/}
+        {/*    <div>*/}
+        {/*      <h3 className="font-weight-bold mb-3 p-0">*/}
+        {/*        <strong>4 место в 2019 году</strong>*/}
+        {/*      </h3>*/}
+        {/*      <p>*/}
+        {/*        ИДАБ занимает 4 место в 2019 году в народном рейтинге российских бизнес школ, согласно сайту mba.su.*/}
+        {/*      </p>*/}
+        {/*      <a href="https://www.mba.su/narodnyj_rating_bschools_2019/" target='_blank'>*/}
+        {/*        <MDBBtn outline color="idab" size="sm">Статья на сайте mba.su</MDBBtn>*/}
+        {/*      </a>*/}
+        {/*    </div>*/}
+        {/*  </MDBCol>*/}
+        {/*  <MDBCol lg="5">*/}
+        {/*    <MDBView className="rounded z-depth-2 mb-lg-0 mb-4" hover waves>*/}
+        {/*      <img*/}
+        {/*        className="img-fluid"*/}
+        {/*        src={rating2019}*/}
+        {/*        alt=""*/}
+        {/*      />*/}
+        {/*      <a href="https://www.mba.su/narodnyj_rating_bschools_2019/" target='_blank'>*/}
+        {/*        <MDBMask overlay="white-slight"/>*/}
+        {/*      </a>*/}
+        {/*    </MDBView>*/}
+        {/*  </MDBCol>*/}
+        {/*</MDBRow>*/}
+        {/*<hr className="my-5"/>*/}
+        {/*<MDBRow>*/}
+        {/*  <MDBCol lg="5">*/}
+        {/*    <MDBView className="rounded z-depth-2 mb-lg-0 mb-4" hover waves>*/}
+        {/*      <img*/}
+        {/*        className="img-fluid"*/}
+        {/*        src={accred2019}*/}
+        {/*        alt=""*/}
+        {/*      />*/}
+        {/*      <a href="">*/}
+        {/*        <MDBMask overlay="white-slight"/>*/}
+        {/*      </a>*/}
+        {/*    </MDBView>*/}
+        {/*  </MDBCol>*/}
+        {/*  <MDBCol lg="7" className='d-flex justify-content-center align-items-center'>*/}
+        {/*    <div>*/}
+        {/*      <h3 className="font-weight-bold mb-3 p-0">*/}
+        {/*        <strong>Аккредитация Института финансовых аналитиков (IFA, Великобритания)</strong>*/}
+        {/*      </h3>*/}
+        {/*      <p>*/}
+        {/*        Институт финансовых аналитиков (IFA, Великобритания) пролонгировал аккредитацию программы «Мастер*/}
+        {/*        делового*/}
+        {/*        администрирования – Master of Business Administration (МВА)» ИДАБ ГУУ до 2021 года. Дипломы IFA имеют*/}
+        {/*        признание в 85 странах мира и подтверждают соответствие программы MBA ИДАБ ГУУ международным требованиям*/}
+        {/*        профессиональных программ.*/}
+        {/*      </p>*/}
+        {/*    </div>*/}
+        {/*  </MDBCol>*/}
+        {/*</MDBRow>*/}
+        {/*<hr className="my-5"/>*/}
+        {/*<MDBRow>*/}
+        {/*  <MDBCol lg="7" className='d-flex justify-content-center align-items-center'>*/}
+        {/*    <div>*/}
+        {/*      <h3 className="font-weight-bold mb-3 p-0">*/}
+        {/*        <strong>5 место в 2018 году</strong>*/}
+        {/*      </h3>*/}
+        {/*      <p>*/}
+        {/*        ИДАБ занимает 5 место в 2018 году в народном рейтинге российских бизнес школ, согласно сайту mba.su.*/}
+        {/*      </p>*/}
+        {/*      <a href="https://www.mba.su/narodnyj_rating_bschools_2018/" target='_blank'>*/}
+        {/*        <MDBBtn outline color="idab" size="sm">Статья на сайте mba.su</MDBBtn>*/}
+        {/*      </a>*/}
+        {/*    </div>*/}
+        {/*  </MDBCol>*/}
+        {/*  <MDBCol lg="5">*/}
+        {/*    <MDBView className="rounded z-depth-2 mb-lg-0 mb-4" hover waves>*/}
+        {/*      <img*/}
+        {/*        className="img-fluid"*/}
+        {/*        src={rating2018}*/}
+        {/*        alt=""*/}
+        {/*      />*/}
+        {/*      <a href="https://www.mba.su/narodnyj_rating_bschools_2018/" target='_blank'>*/}
+        {/*        <MDBMask overlay="white-slight"/>*/}
+        {/*      </a>*/}
+        {/*    </MDBView>*/}
+        {/*  </MDBCol>*/}
+        {/*</MDBRow>*/}
+        {/*<hr className="my-5"/>*/}
 
 
-        <MDBRow>
-          <MDBCol lg="5">
-            <MDBView className="rounded z-depth-2 mb-lg-0 mb-4" hover waves>
-              <img
-                className="img-fluid"
-                src={rating2016}
-                alt=""
-              />
-              <a href="http://www.rbcplus.ru/news/57d92b9b7a8aa95a1a6b5ad2" target='_blank'>
-                <MDBMask overlay="white-slight"/>
-              </a>
-            </MDBView>
-          </MDBCol>
-          <MDBCol lg="7" className='d-flex justify-content-center align-items-center'>
-            <div>
-              <h3 className="font-weight-bold mb-3 p-0">
-                <strong>2 место в 2016 году</strong>
-              </h3>
-              <p>
-                ИДАБ занимает 2 место в 2016 году в народном рейтинге российских бизнес школ, согласно «РБК+».
-              </p>
-              <a href="http://www.rbcplus.ru/news/57d92b9b7a8aa95a1a6b5ad2" target='_blank'>
-                <MDBBtn outline color="idab" size="sm">Статья на сайте «РБК+»</MDBBtn>
-              </a>
-            </div>
-          </MDBCol>
-        </MDBRow>
-        <hr className="my-5"/>
-        <MDBRow>
-          <MDBCol lg="7" className='d-flex justify-content-center align-items-center'>
-            <div>
-              <h3 className="font-weight-bold mb-3 p-0">
-                <strong>2 место в 2015</strong>
-              </h3>
-              <p>
-                ИДАБ занимает 2 место в 2015 году в народном рейтинге российских бизнес школ, согласно бизнес-журналу
-                «Секрет фирмы».
-              </p>
-              <a href="https://secretmag.ru/trends/tendencies/mba2015.htm" target='_blank'>
-                <MDBBtn outline color="idab" size="sm">Статья на сайте «Секрет фирмы»</MDBBtn>
-              </a>
-            </div>
-          </MDBCol>
-          <MDBCol lg="5">
-            <MDBView className="rounded z-depth-2 mb-lg-0 mb-4" hover waves>
-              <img
-                className="img-fluid"
-                src={rating2015}
-                alt=""
-              />
-              <a href="https://secretmag.ru/trends/tendencies/mba2015.htm" target='_blank'>
-                <MDBMask overlay="white-slight"/>
-              </a>
-            </MDBView>
-          </MDBCol>
-        </MDBRow>
-        <hr className="my-5"/>
-        <MDBRow>
-          <MDBCol lg="5">
-            <MDBView className="rounded z-depth-2 mb-lg-0 mb-4" hover waves>
-              <img
-                className="img-fluid"
-                src={accred2014}
-                alt=""
-              />
-              <a href="">
-                <MDBMask overlay="white-slight"/>
-              </a>
-            </MDBView>
-          </MDBCol>
-          <MDBCol lg="7" className='d-flex justify-content-center align-items-center'>
-            <div>
-              <h3 className="font-weight-bold mb-3 p-0">
-                <strong>Аккредитация Института финансовых аналитиков в 2014 году.</strong>
-              </h3>
-              <p>
-                В 2014 году программа «Мастер делового администрирования – Master of Business Administration (МВА)» ИДАБ
-                получила международное признание/аккредитацию Института финансовых аналитиков (IFA, Великобритания),
-                диплом которого имеет признание в 85 странах мира и подтверждает соответствие программы «Master of
-                business administration» ИДАБ международным требованиям профессиональных программ.
-              </p>
-            </div>
-          </MDBCol>
-        </MDBRow>
-        <hr className="my-5"/>
-        <MDBRow>
-          <MDBCol lg="7" className='d-flex justify-content-center align-items-center'>
-            <div>
-              <h3 className="font-weight-bold mb-3 p-0">
-                <strong>4 место в 2012-2013 гг. и 3 место в 2010-2011 гг.</strong>
-              </h3>
-              <p>
-                ИДАБ занимает 4 место в 2012-2013 гг, 3 место в 2010-2011 гг. в народном рейтинге российских бизнес
-                школ,
-                согласно бизнес-журналу «Секрет фирмы».
-              </p>
-              <a href="http://www.mba.su/ratings_09-11/" target='_blank'>
-                <MDBBtn outline color="idab" size="sm">Статья на сайте mba.su</MDBBtn>
-              </a>
-            </div>
-          </MDBCol>
-          <MDBCol lg="5">
-            <MDBView className="rounded z-depth-2 mb-lg-0 mb-4" hover waves>
-              <img
-                className="img-fluid"
-                src={rating2013}
-                alt=""
-              />
-              <a href="http://www.mba.su/ratings_09-11/" target='_blank'>
-                <MDBMask overlay="white-slight"/>
-              </a>
-            </MDBView>
-          </MDBCol>
-        </MDBRow>
-        <hr className="my-5"/>
+        {/*<MDBRow>*/}
+        {/*  <MDBCol lg="5">*/}
+        {/*    <MDBView className="rounded z-depth-2 mb-lg-0 mb-4" hover waves>*/}
+        {/*      <img*/}
+        {/*        className="img-fluid"*/}
+        {/*        src={rating2016}*/}
+        {/*        alt=""*/}
+        {/*      />*/}
+        {/*      <a href="http://www.rbcplus.ru/news/57d92b9b7a8aa95a1a6b5ad2" target='_blank'>*/}
+        {/*        <MDBMask overlay="white-slight"/>*/}
+        {/*      </a>*/}
+        {/*    </MDBView>*/}
+        {/*  </MDBCol>*/}
+        {/*  <MDBCol lg="7" className='d-flex justify-content-center align-items-center'>*/}
+        {/*    <div>*/}
+        {/*      <h3 className="font-weight-bold mb-3 p-0">*/}
+        {/*        <strong>2 место в 2016 году</strong>*/}
+        {/*      </h3>*/}
+        {/*      <p>*/}
+        {/*        ИДАБ занимает 2 место в 2016 году в народном рейтинге российских бизнес школ, согласно «РБК+».*/}
+        {/*      </p>*/}
+        {/*      <a href="http://www.rbcplus.ru/news/57d92b9b7a8aa95a1a6b5ad2" target='_blank'>*/}
+        {/*        <MDBBtn outline color="idab" size="sm">Статья на сайте «РБК+»</MDBBtn>*/}
+        {/*      </a>*/}
+        {/*    </div>*/}
+        {/*  </MDBCol>*/}
+        {/*</MDBRow>*/}
+        {/*<hr className="my-5"/>*/}
+        {/*<MDBRow>*/}
+        {/*  <MDBCol lg="7" className='d-flex justify-content-center align-items-center'>*/}
+        {/*    <div>*/}
+        {/*      <h3 className="font-weight-bold mb-3 p-0">*/}
+        {/*        <strong>2 место в 2015</strong>*/}
+        {/*      </h3>*/}
+        {/*      <p>*/}
+        {/*        ИДАБ занимает 2 место в 2015 году в народном рейтинге российских бизнес школ, согласно бизнес-журналу*/}
+        {/*        «Секрет фирмы».*/}
+        {/*      </p>*/}
+        {/*      <a href="https://secretmag.ru/trends/tendencies/mba2015.htm" target='_blank'>*/}
+        {/*        <MDBBtn outline color="idab" size="sm">Статья на сайте «Секрет фирмы»</MDBBtn>*/}
+        {/*      </a>*/}
+        {/*    </div>*/}
+        {/*  </MDBCol>*/}
+        {/*  <MDBCol lg="5">*/}
+        {/*    <MDBView className="rounded z-depth-2 mb-lg-0 mb-4" hover waves>*/}
+        {/*      <img*/}
+        {/*        className="img-fluid"*/}
+        {/*        src={rating2015}*/}
+        {/*        alt=""*/}
+        {/*      />*/}
+        {/*      <a href="https://secretmag.ru/trends/tendencies/mba2015.htm" target='_blank'>*/}
+        {/*        <MDBMask overlay="white-slight"/>*/}
+        {/*      </a>*/}
+        {/*    </MDBView>*/}
+        {/*  </MDBCol>*/}
+        {/*</MDBRow>*/}
+        {/*<hr className="my-5"/>*/}
+        {/*<MDBRow>*/}
+        {/*  <MDBCol lg="5">*/}
+        {/*    <MDBView className="rounded z-depth-2 mb-lg-0 mb-4" hover waves>*/}
+        {/*      <img*/}
+        {/*        className="img-fluid"*/}
+        {/*        src={accred2014}*/}
+        {/*        alt=""*/}
+        {/*      />*/}
+        {/*      <a href="">*/}
+        {/*        <MDBMask overlay="white-slight"/>*/}
+        {/*      </a>*/}
+        {/*    </MDBView>*/}
+        {/*  </MDBCol>*/}
+        {/*  <MDBCol lg="7" className='d-flex justify-content-center align-items-center'>*/}
+        {/*    <div>*/}
+        {/*      <h3 className="font-weight-bold mb-3 p-0">*/}
+        {/*        <strong>Аккредитация Института финансовых аналитиков в 2014 году.</strong>*/}
+        {/*      </h3>*/}
+        {/*      <p>*/}
+        {/*        В 2014 году программа «Мастер делового администрирования – Master of Business Administration (МВА)» ИДАБ*/}
+        {/*        получила международное признание/аккредитацию Института финансовых аналитиков (IFA, Великобритания),*/}
+        {/*        диплом которого имеет признание в 85 странах мира и подтверждает соответствие программы «Master of*/}
+        {/*        business administration» ИДАБ международным требованиям профессиональных программ.*/}
+        {/*      </p>*/}
+        {/*    </div>*/}
+        {/*  </MDBCol>*/}
+        {/*</MDBRow>*/}
+        {/*<hr className="my-5"/>*/}
+        {/*<MDBRow>*/}
+        {/*  <MDBCol lg="7" className='d-flex justify-content-center align-items-center'>*/}
+        {/*    <div>*/}
+        {/*      <h3 className="font-weight-bold mb-3 p-0">*/}
+        {/*        <strong>4 место в 2012-2013 гг. и 3 место в 2010-2011 гг.</strong>*/}
+        {/*      </h3>*/}
+        {/*      <p>*/}
+        {/*        ИДАБ занимает 4 место в 2012-2013 гг, 3 место в 2010-2011 гг. в народном рейтинге российских бизнес*/}
+        {/*        школ,*/}
+        {/*        согласно бизнес-журналу «Секрет фирмы».*/}
+        {/*      </p>*/}
+        {/*      <a href="http://www.mba.su/ratings_09-11/" target='_blank'>*/}
+        {/*        <MDBBtn outline color="idab" size="sm">Статья на сайте mba.su</MDBBtn>*/}
+        {/*      </a>*/}
+        {/*    </div>*/}
+        {/*  </MDBCol>*/}
+        {/*  <MDBCol lg="5">*/}
+        {/*    <MDBView className="rounded z-depth-2 mb-lg-0 mb-4" hover waves>*/}
+        {/*      <img*/}
+        {/*        className="img-fluid"*/}
+        {/*        src={rating2013}*/}
+        {/*        alt=""*/}
+        {/*      />*/}
+        {/*      <a href="http://www.mba.su/ratings_09-11/" target='_blank'>*/}
+        {/*        <MDBMask overlay="white-slight"/>*/}
+        {/*      </a>*/}
+        {/*    </MDBView>*/}
+        {/*  </MDBCol>*/}
+        {/*</MDBRow>*/}
+        {/*<hr className="my-5"/>*/}
 
       </div>
     </React.Fragment>
@@ -451,7 +523,8 @@ const RatingSection = ({page}) => {
 }
 
 const mapStateToProps = state => ({
-  page: state.pages.pages[0]
+  page: state.pages.pages[0],
+  rating: state.about.about_rating,
 })
 
 export default connect(mapStateToProps)(RatingSection);

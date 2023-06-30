@@ -152,8 +152,8 @@ class History(models.Model):
 
 class Rating(models.Model):
     title = models.CharField(max_length=150, verbose_name='Заголовок', blank=True, null=True)
-    url = models.TextField(verbose_name='Ссылка на статью', blank=True, null=True)
     text = models.TextField(verbose_name='Текст', blank=True, null=True)
+    url = models.TextField(verbose_name='Ссылка на статью', blank=True, null=True)
     image = models.ImageField(upload_to=rating_directory_path, max_length=255, verbose_name='Изображение', blank=True, null=True)
     is_active = models.BooleanField(default=True)
     my_order = models.PositiveIntegerField(verbose_name='Сорт.',
