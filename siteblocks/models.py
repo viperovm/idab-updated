@@ -142,7 +142,7 @@ class History(models.Model):
         verbose_name_plural = 'Эл-ты истории'
 
     def __str__(self):
-         return truncatechars(self.title, 20)
+        return truncatechars(self.title, 20)
 
     def save(self, *args, **kwargs):
         super(History, self).save()
@@ -171,7 +171,7 @@ class Rating(models.Model):
         return truncatechars(self.title, 20)
 
     def save(self, *args, **kwargs):
-        super(History, self).save()
+        super(Rating, self).save()
         if self.image:
             create_crop_3x1_wout_tmb(self, crop_width=700, crop_heigth=380)
 
