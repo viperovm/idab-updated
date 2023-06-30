@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import HistoryViewSet, ContactViewSet, CategoryViewSet, ProgramViewSet, ManagmentViewSet, LeaderViewSet, TeacherViewSet, EventViewSet, ReviewViewSet, ReviewVideoViewSet, FaqViewSet, SectionViewSet, GalleryViewSet, AdmittanceDateViewSet
+from .views import RatingViewSet, HistoryViewSet, ContactViewSet, CategoryViewSet, ProgramViewSet, ManagmentViewSet, LeaderViewSet, TeacherViewSet, EventViewSet, ReviewViewSet, ReviewVideoViewSet, FaqViewSet, SectionViewSet, GalleryViewSet, AdmittanceDateViewSet
 from rest_framework.routers import DefaultRouter
 
 router = DefaultRouter()
@@ -17,5 +17,6 @@ router.register(r'history', HistoryViewSet, basename='history')
 router.register(r'pages', SectionViewSet, basename='page')
 router.register(r'galleries', GalleryViewSet, basename='gallery')
 router.register(r'admittancedate', AdmittanceDateViewSet, basename='admittancedate')
+router.register(r'rating', RatingViewSet, basename='rating')
 
 urlpatterns = router.urls

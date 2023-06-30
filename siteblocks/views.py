@@ -1,10 +1,10 @@
 from django.shortcuts import render
 from rest_framework import status, viewsets
-from .models import History, Contact, Review, Faq, Section, AdmittanceDate
+from .models import Rating, History, Contact, Review, Faq, Section, AdmittanceDate
 from users.models import Teacher, Manager
 from programs.models import Category, Program
 from galleries.models import Gallery, ImageIdab
-from .serializers import HistorySerializer, ContactSerializer, CategorySerializer, ProgramSerializer, CategoryNameSerializer, TeacherNameSerializer, TeacherSerializer, EventShortSerializer, EventSerializer, ReviewSerializer, ReviewVideoSerializer, FaqSerializer, ManagerSerializer, ManagerNameSerializer, SectionSerializer, AdmittanceDateSerializer, GallerySerializer
+from .serializers import RatingSerializer, HistorySerializer, ContactSerializer, CategorySerializer, ProgramSerializer, CategoryNameSerializer, TeacherNameSerializer, TeacherSerializer, EventShortSerializer, EventSerializer, ReviewSerializer, ReviewVideoSerializer, FaqSerializer, ManagerSerializer, ManagerNameSerializer, SectionSerializer, AdmittanceDateSerializer, GallerySerializer
 from news.models import Event
 import datetime
 from rest_framework.response import Response
@@ -14,6 +14,7 @@ class ContactViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Contact.objects.all().exclude(is_active=False)
     serializer_class = ContactSerializer
 
+
 class CategoryViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Category.objects.all().exclude(is_active=False)
     lookup_field = 'slug'
@@ -21,6 +22,7 @@ class CategoryViewSet(viewsets.ReadOnlyModelViewSet):
         if self.action == 'list':
             return CategoryNameSerializer
         return CategorySerializer
+
 
 class ProgramViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Program.objects.all().exclude(is_active=False)
@@ -53,6 +55,7 @@ class TeacherViewSet(viewsets.ReadOnlyModelViewSet):
 
 class EventViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Event.objects.all().exclude(enddate__lt=datetime.datetime.now())
+
     def get_serializer_class(self):
         if self.action == 'list':
             return EventShortSerializer
@@ -69,6 +72,7 @@ class EventViewSet(viewsets.ReadOnlyModelViewSet):
 class ReviewViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Review.objects.all().exclude(is_active=False).exclude(body__isnull=True).exclude(body__exact='')
     serializer_class = ReviewSerializer
+
 
 class ReviewVideoViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Review.objects.all().exclude(is_active=False).exclude(video__isnull=True).exclude(video__exact='')
@@ -98,3 +102,9 @@ class GalleryViewSet(viewsets.ReadOnlyModelViewSet):
 class AdmittanceDateViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = AdmittanceDate.objects.all()
     serializer_class = AdmittanceDateSerializer
+
+
+class RatingViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = Rating.objects.all()
+    serializer_class = RatingSerializer
+

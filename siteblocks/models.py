@@ -15,6 +15,7 @@ def rewiever_directory_path(instance, filename):
         folder = folder[:75]
     return 'rewievers/{0}/{1}{2}'.format(folder, slugify(unidecode(name)), '.jpg')
 
+
 def about_directory_path(instance, filename):
     title, extension = os.path.splitext(filename)
     folder = slugify(unidecode(instance.title))
@@ -22,12 +23,21 @@ def about_directory_path(instance, filename):
         folder = folder[:75]
     return 'about/{0}/{1}{2}'.format(folder, slugify(unidecode(title)), extension)
 
+
 def history_directory_path(instance, filename):
     title, extension = os.path.splitext(filename)
     folder = slugify(unidecode(instance.title))
     if len(folder) > 75:
         folder = folder[:75]
     return 'history/{0}/{1}{2}'.format(folder, slugify(unidecode(title)), extension)
+
+
+def rating_directory_path(instance, filename):
+    title, extension = os.path.splitext(filename)
+    folder = slugify(unidecode(instance.title))
+    if len(folder) > 75:
+        folder = folder[:75]
+    return 'rating/{0}/{1}{2}'.format(folder, slugify(unidecode(title)), extension)
 
 
 class Contact(models.Model):
@@ -140,6 +150,26 @@ class History(models.Model):
             create_crop_3x1_wout_tmb(self, crop_width=700, crop_heigth=394)
 
 
+class Rating(models.Model):
+    title = models.CharField(max_length=150, verbose_name='Заголовок', blank=True, null=True)
+    url = models.TextField(verbose_name='Ссылка на статью', blank=True, null=True)
+    text = models.TextField(verbose_name='Текст', blank=True, null=True)
+    image = models.ImageField(upload_to=rating_directory_path, max_length=255, verbose_name='Изображение', blank=True, null=True)
+    is_active = models.BooleanField(default=True)
+
+    class Meta:
+        verbose_name = 'Эл-т рейтинга'
+        verbose_name_plural = 'Эл-ты рейтинга'
+
+    def __str__(self):
+        return truncatechars(self.title, 20)
+
+    def save(self, *args, **kwargs):
+        super(History, self).save()
+        if self.image:
+            create_crop_3x1_wout_tmb(self, crop_width=700, crop_heigth=380)
+
+
 class Page(models.Model):
     excerption = models.TextField(verbose_name='Цитата', blank=True, null=True)
     sub1 = models.CharField(max_length=150, verbose_name='Подпись1', blank=True, null=True)
@@ -170,7 +200,7 @@ class Section(Page):
 
 
 class SubSection(Page):
-    section = models.ForeignKey('Section',related_name='subsections' , on_delete=models.CASCADE, verbose_name='Раздел', blank=True, null=True)
+    section = models.ForeignKey('Section', related_name='subsections', on_delete=models.CASCADE, verbose_name='Раздел', blank=True, null=True)
     class Meta:
         verbose_name = 'Подраздел'
         verbose_name_plural = 'Подразделы'

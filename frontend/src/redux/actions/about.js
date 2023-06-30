@@ -11,6 +11,8 @@ import {
   GET_ABOUT_GALLERY_FAIL,
   GET_ABOUT_HISTORY_SUCCESS,
   GET_ABOUT_HISTORY_FAIL,
+  GET_ABOUT_RATING_SUCCESS,
+  GET_ABOUT_RATING_FAIL,
 } from './types'
 
 export const load_about_leader = () => async dispatch => {
@@ -136,3 +138,29 @@ export const load_about_history = () => async dispatch => {
       })
     }
 }
+
+
+export const load_about_rating = () => async dispatch => {
+  const config = {
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      }
+    };
+
+    try {
+      const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/rating/`, config);
+      const data = {
+        about_rating: res.data,
+      }
+      dispatch({
+        type: GET_ABOUT_RATING_SUCCESS,
+        payload: data
+      })
+    } catch (err) {
+      dispatch({
+        type: GET_ABOUT_RATING_FAIL
+      })
+    }
+}
+

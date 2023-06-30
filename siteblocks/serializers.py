@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import History, Contact, Phone, Social, Review, Faq, SubSection, Section, AdmittanceDate
+from .models import Rating, History, Contact, Phone, Social, Review, Faq, SubSection, Section, AdmittanceDate
 from programs.models import Category, Program
 from users.models import Teacher, Manager, User
 from news.models import Event
@@ -194,3 +194,11 @@ class AdmittanceDateSerializer(serializers.ModelSerializer):
     class Meta:
         model = AdmittanceDate
         fields = '__all__'
+
+
+class RatingSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Rating
+        fields = '__all__'
+

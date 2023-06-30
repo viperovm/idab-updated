@@ -3,10 +3,10 @@ import {MDBContainer, MDBNav, MDBNavItem, MDBNavLink} from "mdbreact";
 import {useRouteMatch} from "react-router-dom";
 
 import {connect} from "react-redux";
-import {load_about_leader, load_about_management, load_about_teachers, load_about_gallery, load_about_history} from "../redux/actions/about"
+import {load_about_leader, load_about_management, load_about_teachers, load_about_gallery, load_about_history, load_about_rating} from "../redux/actions/about"
 import {load_pages} from "../redux/actions/pages"
 
-const AboutLayout = ({children, load_about_leader, load_about_management, load_about_teachers, load_about_gallery, load_about_history, load_pages}) => {
+const AboutLayout = ({children, load_about_leader, load_about_management, load_about_teachers, load_about_gallery, load_about_history, load_about_rating, load_pages}) => {
 
   useEffect(() => {
     load_about_leader();
@@ -14,6 +14,7 @@ const AboutLayout = ({children, load_about_leader, load_about_management, load_a
     load_about_teachers();
     load_about_gallery();
     load_about_history();
+    load_about_rating();
   }, [])
 
   useEffect(() => {
@@ -91,4 +92,4 @@ const AboutLayout = ({children, load_about_leader, load_about_management, load_a
   );
 }
 
-export default connect(null, {load_about_leader, load_about_management, load_about_teachers, load_about_gallery, load_about_history, load_pages})(AboutLayout);
+export default connect(null, {load_about_leader, load_about_management, load_about_teachers, load_about_gallery, load_about_history, load_about_rating, load_pages})(AboutLayout);

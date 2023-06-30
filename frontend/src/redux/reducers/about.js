@@ -9,6 +9,8 @@ import {
   GET_ABOUT_GALLERY_FAIL,
   GET_ABOUT_HISTORY_SUCCESS,
   GET_ABOUT_HISTORY_FAIL,
+  GET_ABOUT_RATING_SUCCESS,
+  GET_ABOUT_RATING_FAIL,
 } from '../actions/types'
 
 const initialState = {
@@ -17,6 +19,7 @@ const initialState = {
   about_teachers: [],
   about_gallery: [],
   about_history: [],
+  about_rating: [],
 };
 
 export default function(state= initialState, action) {
@@ -73,6 +76,17 @@ export default function(state= initialState, action) {
       return {
         ...state,
         about_history: []
+      }
+
+    case GET_ABOUT_RATING_SUCCESS:
+      return {
+        ...state,
+        about_rating: payload.about_rating
+      }
+    case GET_ABOUT_RATING_FAIL:
+      return {
+        ...state,
+        about_rating: []
       }
     default:
       return state
