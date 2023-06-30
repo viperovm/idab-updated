@@ -1,0 +1,4 @@
+.history/
+venv/
+.idea/
+sqlite3.db
