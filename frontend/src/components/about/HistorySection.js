@@ -136,7 +136,13 @@ const HistorySection = ({page, history}) => {
         <div className="">
           <MDBTimeline clasName="">
             {history?.map((item, index) => (
-              <MDBTimelineStep colorful hoverable color="idab-3" label={index+1}>
+              <MDBTimelineStep
+                inverted={(index+1)%2===0}
+                colorful
+                hoverable
+                color="idab-3"
+                label={index+1}
+              >
               <img src={item?.image} className="img-fluid" alt=""/>
               <h4 className="font-weight-bold p-4 mb-0">
                 {item?.title}
