@@ -26,7 +26,7 @@ class HistoryAdmin(SortableAdminMixin, admin.ModelAdmin):
     model = History
 
 
-class RatingAdmin(admin.ModelAdmin):
+class RatingAdmin(SortableAdminMixin, admin.ModelAdmin):
     model = Rating
 
 
