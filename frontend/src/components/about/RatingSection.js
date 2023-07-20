@@ -523,7 +523,7 @@ const RatingSection = ({page, rating}) => {
 }
 
 const mapStateToProps = state => ({
-  page: state.pages.pages[0],
+  page: state.pages.pages[1],
   rating: state.about.about_rating,
 })
 

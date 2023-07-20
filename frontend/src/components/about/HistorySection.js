@@ -461,7 +461,7 @@ const HistorySection = ({page, history}) => {
 };
 
 const mapStateToProps = state => ({
-  page: state.pages.pages[0],
+  page: state.pages.pages[1],
   history: state.about.about_history
 })
 

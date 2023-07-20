@@ -135,7 +135,7 @@ const mapStateToProps = state => ({
   leader: state.about.about_leader,
   management: state.about.about_management,
   teachers: state.about.about_teachers,
-  page: state.pages.pages[0]
+  page: state.pages.pages[1]
 })
 
 export default connect(mapStateToProps)(TeamSection);
