@@ -203,7 +203,7 @@ const MissionSection = ({page}) => {
 }
 
 const mapStateToProps = state => ({
-  page: state.pages.pages[0]
+  page: state.pages.pages[1]
 })
 
 export default connect(mapStateToProps)(MissionSection);
