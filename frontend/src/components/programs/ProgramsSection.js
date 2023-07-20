@@ -131,7 +131,7 @@ const ProgramsSection = ({programs, page, load_categories, error}) => {
 
 const mapStateToProps = state => ({
   programs: state.programs.categories,
-  page: state.pages.pages[1],
+  page: state.pages.pages[0],
   error: state.programs.error,
 });
 
