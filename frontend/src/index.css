@@ -96,6 +96,11 @@ main {
     line-height: 1.4rem;
 }
 
+.pre-text-light-small {
+    font-size: 1.2rem;
+    line-height: 1.4rem;
+}
+
 .btn-outline-idab {
     color: #5b2732 !important;
     background-color: transparent !important;

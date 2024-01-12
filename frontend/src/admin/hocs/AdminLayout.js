@@ -260,7 +260,7 @@ const AdminLayout = ({ children, user }) => {
               </div>
             </div>
             <div className='quickview'>
-              <ShowWeather />
+              {/*<ShowWeather />*/}
             </div>
           </div>
         </div>

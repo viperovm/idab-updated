@@ -7,7 +7,7 @@ import {isNotEmptyObject} from "../functions";
 import {education_bid} from '../redux/actions/bids';
 import {navbar_height, section_height} from "../redux/actions/home";
 
-const Contacts = ({status, education_bid}) => {
+const Contacts = ({status, education_bid, contacts}) => {
 
   const [email, setEmail] = useState('')
   const [name, setName] = useState('')
@@ -121,7 +121,7 @@ const Contacts = ({status, education_bid}) => {
             <MDBCardBody cascade className='p-0'>
               <MDBRow>
                 <MDBCol lg="8" className='pl-3 h-100'>
-                  <div className="form ml-4 mt-4" style={{minHeight:300}}>
+                  <div className="form ml-4 mt-4" style={{minHeight: 300}}>
                     {pending ?
                       <div className='h-100 d-flex justify-content-center align-items-center'>
                         <div className="spinner-grow text-idab" role="status">
@@ -246,23 +246,22 @@ const Contacts = ({status, education_bid}) => {
                       <li>
                         <p>
                           <MDBIcon icon='map-marker-alt' className='pr-2'/>
-                          Рязанский проспект, дом 99, ГУУ
+                          {contacts.adress}
+                          {/*Рязанский проспект, дом 99, ГУУ*/}
                         </p>
                       </li>
-                      <li>
-                        <p>
-                          <MDBIcon icon='phone' className='pr-2'/>+7 (495) 376-42-33
-                        </p>
-                      </li>
-                      <li>
-                        <p>
-                          <MDBIcon icon='phone' className='pr-2'/>+7 (916) 348-50-81
-                        </p>
-                      </li>
+                      {contacts?.phones && contacts?.phones?.length > 0 && contacts?.phones?.map((v, i) => (
+                        <li>
+                          <p>
+                            <MDBIcon key={i} icon='phone' className='pr-2'/>{v.phone}
+                          </p>
+                        </li>
+                      ))
+                      }
                       <li>
                         <p>
                           <MDBIcon icon='envelope' className='pr-2'/>
-                          idab@guu.ru
+                          {contacts.email}
                         </p>
                       </li>
                     </ul>
@@ -296,7 +295,8 @@ const Contacts = ({status, education_bid}) => {
 }
 
 const mapStateToProps = state => ({
-  status: state.bids.study_bid_status
+  status: state.bids.study_bid_status,
+  contacts: state.home.contacts,
 });
 
 export default connect(mapStateToProps, {education_bid})(Contacts);

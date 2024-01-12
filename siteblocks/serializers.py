@@ -25,7 +25,7 @@ class ContactSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Contact
-        fields = ['id', 'adress', 'email', 'phones', 'links']
+        fields = ['id', 'adress', 'coords', 'email', 'phones', 'links']
         depth = 1
 
 

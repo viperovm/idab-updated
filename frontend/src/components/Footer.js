@@ -1,10 +1,14 @@
 import React from "react";
 import {MDBCol, MDBContainer, MDBRow, MDBFooter, MDBIcon, MDBLink} from "mdbreact";
 import {connect} from "react-redux";
-import {isNotEmptyObject, proper_phone} from "../functions"
+import {isNotEmptyObject, proper_coords, proper_phone} from "../functions"
 import {YMaps, Map, Placemark} from 'react-yandex-maps';
 
 const Footer = ({contacts}) => {
+
+  console.log(contacts)
+  console.log(contacts?.coords)
+  console.log(proper_coords(contacts?.coords))
 
   return (
     <MDBFooter color="idab-3" className="font-small pt-4">
@@ -36,26 +40,20 @@ const Footer = ({contacts}) => {
                   {contacts.adress}
                 </div>
               </div>
-              <a className='p-0 text-white' href={`tel:${contacts.phones[0].phone}`}>
-                <div className='d-flex my-1'>
-                  <div className='d-flex justify-content-center align-items-center' style={{width: '30px'}}>
-                    <MDBIcon icon="phone-alt" className='mr-2'/>
+              {contacts?.phones?.length > 0 && contacts?.phones?.map((v, i) => (
+                <a key={i} className='p-0 text-white' href={`tel:${v.phone}`}>
+                  <div className='d-flex my-1'>
+                    <div className='d-flex justify-content-center align-items-center' style={{width: '30px'}}>
+                      <MDBIcon icon="phone-alt" className='mr-2'/>
+                    </div>
+                    <div>
+                      {proper_phone(v.phone)}
+                    </div>
                   </div>
-                  <div>
-                    {proper_phone(contacts.phones[0].phone)}
-                  </div>
-                </div>
-              </a>
-              <a className='p-0' href={`tel:${contacts.phones[1].phone}`}>
-                <div className='d-flex my-1'>
-                  <div className='d-flex justify-content-center align-items-center' style={{width: '30px'}}>
-                    <MDBIcon icon="phone-alt" className='mr-2'/>
-                  </div>
-                  <div>
-                    {proper_phone(contacts.phones[1].phone)}
-                  </div>
-                </div>
-              </a>
+                </a>
+              ))
+              }
+
               <a
                 className='p-0'
                 href={`mail:${contacts.email}`}
@@ -69,47 +67,51 @@ const Footer = ({contacts}) => {
                   </div>
                 </div>
               </a>
-              <a className='p-0' href={contacts.links[2].link}>
-                <div className='d-flex my-1'>
-                  <div className='d-flex justify-content-center align-items-center' style={{width: '30px'}}>
-                    <MDBIcon fab icon="facebook-f" className='mr-2'/>
+              {contacts?.links?.length > 0 &&
+              <>
+                <a className='p-0' href={contacts.links[2].link}>
+                  <div className='d-flex my-1'>
+                    <div className='d-flex justify-content-center align-items-center' style={{width: '30px'}}>
+                      <MDBIcon fab icon="facebook-f" className='mr-2'/>
+                    </div>
+                    <div>
+                      {contacts?.links[2]?.name}
+                    </div>
                   </div>
-                  <div>
-                    {contacts.links[2].name}
+                </a>
+                <a className='p-0' href={contacts.links[1].link}>
+                  <div className='d-flex my-1'>
+                    <div className='d-flex justify-content-center align-items-center' style={{width: '30px'}}>
+                      <MDBIcon fab icon="instagram" className='mr-2'/>
+                    </div>
+                    <div>
+                      {contacts?.links[1]?.name}
+                    </div>
                   </div>
-                </div>
-              </a>
-              <a className='p-0' href={contacts.links[1].link}>
-                <div className='d-flex my-1'>
-                  <div className='d-flex justify-content-center align-items-center' style={{width: '30px'}}>
-                    <MDBIcon fab icon="instagram" className='mr-2'/>
+                </a>
+                <a className='p-0' href={contacts.links[0].link}>
+                  <div className='d-flex my-1'>
+                    <div className='d-flex justify-content-center align-items-center' style={{width: '30px'}}>
+                      <MDBIcon fab icon="youtube" className='mr-2'/>
+                    </div>
+                    <div>
+                      {contacts?.links[0]?.name}
+                    </div>
                   </div>
-                  <div>
-                    {contacts.links[1].name}
-                  </div>
-                </div>
-              </a>
-              <a className='p-0' href={contacts.links[0].link}>
-                <div className='d-flex my-1'>
-                  <div className='d-flex justify-content-center align-items-center' style={{width: '30px'}}>
-                    <MDBIcon fab icon="youtube" className='mr-2'/>
-                  </div>
-                  <div>
-                    {contacts.links[0].name}
-                  </div>
-                </div>
-              </a>
+                </a>
+              </>
+              }
             </div>}
           </MDBCol>
           <hr className="w-100 clearfix d-md-none"/>
           <MDBCol md="4" lg="5" xl="5" className="mx-auto mt-3">
-            <YMaps style={{width: '100%', height: '100%'}}>
+            {contacts?.coords && <YMaps style={{width: '100%', height: '100%'}}>
               <div>
-                <Map defaultState={{center: [55.715517, 37.813369], zoom: 17}} width='100%'>
-                  <Placemark geometry={[55.715517, 37.813369]} />
+                <Map defaultState={{center: proper_coords(contacts?.coords), zoom: 17}} width='100%'>
+                  <Placemark geometry={proper_coords(contacts?.coords)}/>
                 </Map>
               </div>
-            </YMaps>
+            </YMaps>}
           </MDBCol>
         </MDBRow>
       </MDBContainer>

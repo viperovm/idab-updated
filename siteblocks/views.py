@@ -4,7 +4,10 @@ from .models import Rating, History, Contact, Review, Faq, Section, AdmittanceDa
 from users.models import Teacher, Manager
 from programs.models import Category, Program
 from galleries.models import Gallery, ImageIdab
-from .serializers import RatingSerializer, HistorySerializer, ContactSerializer, CategorySerializer, ProgramSerializer, CategoryNameSerializer, TeacherNameSerializer, TeacherSerializer, EventShortSerializer, EventSerializer, ReviewSerializer, ReviewVideoSerializer, FaqSerializer, ManagerSerializer, ManagerNameSerializer, SectionSerializer, AdmittanceDateSerializer, GallerySerializer
+from .serializers import RatingSerializer, HistorySerializer, ContactSerializer, CategorySerializer, ProgramSerializer, \
+    CategoryNameSerializer, TeacherNameSerializer, TeacherSerializer, EventShortSerializer, EventSerializer, \
+    ReviewSerializer, ReviewVideoSerializer, FaqSerializer, ManagerSerializer, ManagerNameSerializer, SectionSerializer, \
+    AdmittanceDateSerializer, GallerySerializer
 from news.models import Event
 import datetime
 from rest_framework.response import Response
@@ -18,6 +21,7 @@ class ContactViewSet(viewsets.ReadOnlyModelViewSet):
 class CategoryViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Category.objects.all().exclude(is_active=False)
     lookup_field = 'slug'
+
     def get_serializer_class(self):
         if self.action == 'list':
             return CategoryNameSerializer
@@ -60,10 +64,12 @@ class EventViewSet(viewsets.ReadOnlyModelViewSet):
         if self.action == 'list':
             return EventShortSerializer
         return EventSerializer
-    
+
     def retrieve(self, request, *args, **kwargs):
         instance = self.get_object()
         serializer = self.get_serializer(instance)
+        if instance.enddate < datetime.datetime.now():
+            instance.is_online = False
         instance.view = instance.view + 1
         instance.save()
         return Response(serializer.data)
@@ -107,4 +113,3 @@ class AdmittanceDateViewSet(viewsets.ReadOnlyModelViewSet):
 class RatingViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Rating.objects.all()
     serializer_class = RatingSerializer
-

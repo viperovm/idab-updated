@@ -20,14 +20,15 @@ const UpPageBanner = ({contacts}) => {
           </a>
         </MDBCol>
         <MDBCol className="d-flex justify-content-end" md="8">
-          <a href={`tel:${contacts.phones[0].phone}`} target="_blank" className="white-text">
-            <span className='mr-3'><MDBIcon className='mr-2' icon="phone-alt"/>{proper_phone(contacts.phones[0].phone)}</span>
-          </a>
-          <a href={`tel:${contacts.phones[1].phone}`} target="_blank" className="white-text">
-            <span className='mr-3'><MDBIcon className='mr-2' icon="phone-alt"/>{proper_phone(contacts.phones[1].phone)}</span>
-          </a>
+          {contacts?.phones && contacts?.phones?.length > 0 && contacts?.phones?.map((v, i) => (
+            <a key={i} href={`tel:${v.phone}`} target="_blank" className="white-text">
+              <span className='mr-3'><MDBIcon className='mr-2'
+                                              icon="phone-alt"/>{proper_phone(v.phone)}</span>
+            </a>
+          ))
+          }
           <a href={`mail:${contacts.email}`} target="_blank" className="white-text">
-            <span><MDBIcon className='mr-2' far icon="envelope"/>idab@guu.ru</span>
+            <span><MDBIcon className='mr-2' far icon="envelope"/>{contacts.email}</span>
           </a>
         </MDBCol>
       </MDBRow>}

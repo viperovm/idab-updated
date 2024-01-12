@@ -27,11 +27,11 @@ class Event(models.Model):
     body = RichTextUploadingField(verbose_name='Текст')
     image = models.ImageField(max_length=255, verbose_name='Иллюстрация', upload_to=image_directory_path)
     view = models.PositiveIntegerField(default=0)
-    is_online = models.BooleanField(default=False)
+    is_online = models.BooleanField(default=True, verbose_name='Иллюстрация')
     class Meta:
         verbose_name = 'События'
         verbose_name_plural = 'События'
-        ordering = ['startdate']
+        ordering = ['-startdate']
     
     def __str__(self):
         return truncatechars(self.title, 20)   

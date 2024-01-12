@@ -10,7 +10,7 @@ import {
   MDBNavLink, MDBRow, MDBTabContent, MDBTabPane
 } from "mdbreact";
 
-import logoGUU from "../assets/logo-guu.png";
+// import logoGUU from "../assets/logo-guu.png";
 import logoIDAB from "../assets/logo-big.svg";
 import UpPageBanner from "./home/UpPageBanner";
 import LowPageBanner from "./home/LowPageBanner";
@@ -84,7 +84,7 @@ class Navbar extends Component {
           scrolling
         >
           <MDBNavbarBrand href='/' className='py-0 font-weight-bold'>
-            <img src={logoGUU} alt="GUU" style={{height: '2.5rem', width: '2.5rem', marginRight: '10px'}}/>
+            {/*<img src={logoGUU} alt="GUU" style={{height: '2.5rem', width: '2.5rem', marginRight: '10px'}}/>*/}
             <img src={logoIDAB} alt="IDAB" style={{height: '2.5rem'}}/>
             {/*<LogoGUU style={{height: '2.5rem', width: '2.5rem'}}/>*/}
             {/*<LogoIDAB style={{height: '2.5rem'}}/>*/}

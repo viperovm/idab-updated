@@ -43,6 +43,7 @@ def rating_directory_path(instance, filename):
 class Contact(models.Model):
     name = models.CharField(max_length=150, verbose_name='Название')
     adress = models.CharField(max_length=255, verbose_name='Адрес')
+    coords = models.CharField(max_length=20, verbose_name='Координаты на карте')
     email = models.EmailField()
     is_active = models.BooleanField(default=True)
 

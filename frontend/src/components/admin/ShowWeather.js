@@ -1,10 +1,11 @@
 import React, {Fragment, useEffect, useState} from "react";
 import {geolocated} from "react-geolocated";
+import axios from "axios";
 
 const APIURL = "http://api.openweathermap.org";
 const REACT_APP_APIKEY = '408ce464cbf3f0aad8aa69d2d9c283da';
 const GOOGLE_MAP_API_URL = "https://maps.googleapis.com/maps/api/geocode/json";
-const axios = require("axios");
+// const axios = require("axios");
 
 const ShowWeather = ({coords}) => {
   const [data, setData] = useState(null)
@@ -13,6 +14,8 @@ const ShowWeather = ({coords}) => {
 
   const [latitude, setLatitude] = useState('');
   const [longitude,setLongitude] = useState('');
+
+  console.log(coords)
 
 
   useEffect(() => {
@@ -23,8 +26,15 @@ const ShowWeather = ({coords}) => {
   }, [coords])
 
   useEffect(() => {
+    const config = {
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+        "Referrer-Policy": "strict-origin-when-cross-origin"
+      },
+    }
     axios.get(
-      `${APIURL}/data/2.5/weather?lat=${latitude}&lon=${longitude}&lang=ru&units=metric&appid=${REACT_APP_APIKEY}`
+      `${APIURL}/data/2.5/weather?lat=${latitude}&lon=${longitude}&lang=ru&units=metric&appid=${REACT_APP_APIKEY}`, config
     ).then(resp => setData(resp.data)).catch(err => console.log(err))
   }, [latitude, longitude])
 

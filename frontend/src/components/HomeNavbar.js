@@ -19,13 +19,19 @@ import {connect} from 'react-redux';
 import {section_height, navbar_height} from '../redux/actions/home';
 import {education_bid} from '../redux/actions/bids';
 
-import logoGUU from "../assets/logo-guu.png";
 import logoIDAB from "../assets/logo-big.svg";
 import UpPageBanner from "./home/UpPageBanner";
 import LowPageBanner from "./home/LowPageBanner";
 import {isNotEmptyObject} from "../functions";
 
 const HomeNavbar = ({trigger, section_height, navbar_height, education_bid, status}) => {
+
+  useEffect(() => {
+    if(document?.referrer?.includes('guu.ru')) {
+      window.location.replace(document?.referrer)
+    }
+  }, [document.referrer])
+
 
   const [collapseID, setCollapseID] = useState('');
   const [page, setPage] = useState('home')
@@ -251,7 +257,7 @@ const HomeNavbar = ({trigger, section_height, navbar_height, education_bid, stat
         // scrollingNavbarOffset={distance + 50}
       >
         <MDBNavbarBrand href='/' className='py-0 font-weight-bold' onClick={() => setPath('/')}>
-          <img src={logoGUU} alt="GUU" style={{height: '2.5rem', width: '2.5rem', marginRight: '10px'}}/>
+          {/*<img src={logoGUU} alt="GUU" style={{height: '2.5rem', width: '2.5rem', marginRight: '10px'}}/>*/}
           <img src={logoIDAB} alt="IDAB" style={{height: '2.5rem'}}/>
         </MDBNavbarBrand>
         <MDBNavbarToggler
